@@ -1,0 +1,15 @@
+# Fin de linea uniforme en todas las maquinas.
+#
+# Sin esto, Git en Windows guarda CRLF y en Linux LF: los mismos archivos
+# aparecen como "modificados" sin que nadie los haya tocado, y eso ensucia
+# los diffs de la revision cruzada y del pipeline.
+#
+# text=auto  -> Git detecta que archivos son texto y los normaliza a LF al confirmar
+# eol=lf     -> y tambien los deja con LF al descargarlos, en cualquier sistema
+* text=auto eol=lf
+
+# Binarios: que Git no intente convertir nada.
+*.png binary
+*.jpg binary
+*.pdf binary
+*.db  binary

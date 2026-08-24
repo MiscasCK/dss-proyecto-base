@@ -1,0 +1,25 @@
+{
+  "name": "proyecto-dss",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gestor de Entregas Academicas - aplicacion base deliberadamente vulnerable para la asignatura Desarrollo de Software Seguro",
+  "type": "module",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "start": "npm run start --workspace=server",
+    "test": "npm run test --workspace=server",
+    "db:reset": "npm run db:reset --workspace=server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

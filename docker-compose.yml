@@ -1,0 +1,24 @@
+# RUTA OPCIONAL — no es necesaria para el curso.
+#
+# La aplicación funciona de principio a fin con node:sqlite (un archivo local),
+# sin Docker. Este compose existe por si quieres levantar PostgreSQL en lugar
+# de SQLite. Si no tienes Docker, ignóralo: no lo necesitas.
+#
+#   docker compose up -d db
+#
+# Luego apunta la app a Postgres adaptando la capa server/src/db/.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: dss_app
+      POSTGRES_PASSWORD: dss_dev_only
+      POSTGRES_DB: dss
+    ports:
+      - "5432:5432"
+    volumes:
+      - dss_pg:/var/lib/postgresql/data
+
+volumes:
+  dss_pg:

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+
+# Base de datos generada en tiempo de ejecucion
+server/data/*.db
+server/data/*.db-journal
+
+# Archivos subidos por los usuarios
+server/uploads/*
+!server/uploads/.gitkeep
+
